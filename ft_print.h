@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:59:24 by enogueir          #+#    #+#             */
-/*   Updated: 2024/11/01 14:33:00 by enogueir         ###   ########.fr       */
+/*   Updated: 2024/11/01 18:15:20 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft/libft.h"
 # include <unistd.h>
-# include <stdlib.h>
+# include <stdarg.h>
 
 int		ft_printf(char const *, ...);
 void	ft_putchar(char c);
