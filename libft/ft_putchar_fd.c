@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.h                                         :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:59:24 by enogueir          #+#    #+#             */
-/*   Updated: 2024/11/01 14:33:00 by enogueir         ###   ########.fr       */
+/*   Created: 2024/09/23 12:31:56 by enogueir          #+#    #+#             */
+/*   Updated: 2024/11/01 15:22:18 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINT_H
-# define FT_PRINT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
+int	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+	return (1);
+}
+/*
+int	main(void)
+{
+	int i;
+	char num;
 
-int		ft_printf(char const *, ...);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-size_t	ft_strlen(char *s);
-char	*ft_num_ent(int n);
-void	ft_ptr(void *);
-
-#endif
+	i = 0;
+	num = '0';
+	while(i < 10)
+	{
+		ft_putchar_fd(num, 1);
+		i++;
+		num++;
+	}
+}*/

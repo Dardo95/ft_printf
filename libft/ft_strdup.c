@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.h                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:59:24 by enogueir          #+#    #+#             */
-/*   Updated: 2024/11/01 14:33:00 by enogueir         ###   ########.fr       */
+/*   Created: 2024/09/25 17:44:08 by enogueir          #+#    #+#             */
+/*   Updated: 2024/09/26 18:20:50 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINT_H
-# define FT_PRINT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
+char	*ft_strdup(const char *s)
+{
+	char	*str;
+	size_t	len;
 
-int		ft_printf(char const *, ...);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-size_t	ft_strlen(char *s);
-char	*ft_num_ent(int n);
-void	ft_ptr(void *);
+	len = ft_strlen(s) + 1;
+	str = (char *)malloc(len * sizeof(char));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s, len);
+	return (str);
+}
+/*
+int	main(void)
+{
+	char *s = "hello";
+	char *str;
 
-#endif
+	str = ft_strdup(s);
+	printf("%s", str);
+	free(str);
+	return(0);
+}*/

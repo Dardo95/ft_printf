@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_text.c                                    :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:59:54 by enogueir          #+#    #+#             */
-/*   Updated: 2024/10/31 13:02:25 by enogueir         ###   ########.fr       */
+/*   Created: 2024/09/21 17:55:55 by enogueir          #+#    #+#             */
+/*   Updated: 2024/09/23 12:36:26 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "libft.h"
 
-void	ft_putchar(char c)
+int	ft_isalnum(int c)
 {
-	write(1, &c, 1);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
-
-void	ft_putstr(char *s)
+/*
+int	main(void)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		write(1, s, 1);
-		i++;
-	}
-}
-
-size_t	ft_strlen(char *s)
-{
-	size_t	count;
-
-	count = 0;
-	while (*s++)
-		count++;
-	return (count);
-}
+	if (ft_isalnum(32))
+		write(1, "is num", 6);
+}*/

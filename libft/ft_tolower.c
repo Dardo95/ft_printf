@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.h                                         :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:59:24 by enogueir          #+#    #+#             */
-/*   Updated: 2024/11/01 14:33:00 by enogueir         ###   ########.fr       */
+/*   Created: 2024/09/17 19:57:08 by enogueir          #+#    #+#             */
+/*   Updated: 2024/09/17 20:02:21 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINT_H
-# define FT_PRINT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-
-int		ft_printf(char const *, ...);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-size_t	ft_strlen(char *s);
-char	*ft_num_ent(int n);
-void	ft_ptr(void *);
-
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 65 && c <= 90)
+	{
+		c = c + 32;
+		return (c);
+	}
+	return (c);
+}

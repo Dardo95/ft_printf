@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.h                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:59:24 by enogueir          #+#    #+#             */
-/*   Updated: 2024/11/01 14:33:00 by enogueir         ###   ########.fr       */
+/*   Created: 2024/09/21 18:17:25 by enogueir          #+#    #+#             */
+/*   Updated: 2024/09/21 18:31:45 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINT_H
-# define FT_PRINT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t	i;
 
-int		ft_printf(char const *, ...);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-size_t	ft_strlen(char *s);
-char	*ft_num_ent(int n);
-void	ft_ptr(void *);
-
-#endif
+	i = 0;
+	while (i < n)
+	{
+		((char *)s)[i] = c;
+		i++;
+	}
+	return (s);
+}
+/*
+int	main(void)
+{
+	char	str[] = "hello";
+	ft_memset(str, 'Z', 4);
+	write(1, str, 4);
+}*/

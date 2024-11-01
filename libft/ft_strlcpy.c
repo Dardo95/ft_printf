@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 13:07:01 by enogueir          #+#    #+#             */
-/*   Updated: 2024/10/31 16:08:51 by enogueir         ###   ########.fr       */
+/*   Created: 2024/09/23 12:32:46 by enogueir          #+#    #+#             */
+/*   Updated: 2024/09/23 12:32:52 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "libft.h"
 
-static void	ft_putc(char c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	write(1, &c, 1);
-}
+	size_t	i;
 
-static void	ft_putstr(char *str)
-{
-	while (*str)
-		write(1, str++, 1);
-}
-
-void	ft_ptr(void *)
-{
-	unsigned long	address;
-
+	i = 0;
+	if (size == 0)
+		return (ft_strlen(src));
+	while (src[i] != '\0' && i < (size - 1))
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.h                                         :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:59:24 by enogueir          #+#    #+#             */
-/*   Updated: 2024/11/01 14:33:00 by enogueir         ###   ########.fr       */
+/*   Created: 2024/09/21 18:31:56 by enogueir          #+#    #+#             */
+/*   Updated: 2024/09/21 18:49:33 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINT_H
-# define FT_PRINT_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-
-int		ft_printf(char const *, ...);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-size_t	ft_strlen(char *s);
-char	*ft_num_ent(int n);
-void	ft_ptr(void *);
-
-#endif
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, 0, n);
+}
+/*
+int     main(void)
+{
+        char    str[] = "hello how are you";
+        ft_bzero(str, 12);
+        write(1, str, 12);
+		bzero(str, 12);
+		write(1, str, 12);
+}*/
