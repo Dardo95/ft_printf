@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:59:36 by enogueir          #+#    #+#             */
-/*   Updated: 2024/11/01 18:18:52 by enogueir         ###   ########.fr       */
+/*   Updated: 2024/11/02 13:52:52 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,24 @@ int ft_var_opt(va_list args, const char format)
 	int	len;
 
 	len = 0;
+
+	if (format == 'c')
+		len += ft_putchar_fd(va_arg(args, int), 1);
+	else if (format == 's')
+		len += ft_putstr_fd(va_arg(args,  char *), 1);
+	else if (format == 'p')
+		len += ft_putptr((size_t)va_arg(args, void *));
+	else if (format == 'd' || format == 'i')
+		len += ft_putnbr_fd(va_arg(args, int), 1);
+	else if (format == 'u')
+		len += ft_putnbr_fd(va_arg(args, unsigned int), 1);
+	else if (format == 'x')
+		len += ft_putnbr_hex(va_arg(args, unsigned int), 0);
+	else if (format == 'X')
+		len += ft_putnbr_hex(va_arg(args, unsigned int), 1);
+	else if (format == '%')
+		len += ft_putchar_fd(va_arg(args, int), 1);
+	return (len);
 }
 
 int	ft_printf(char const *str, ...)
@@ -40,4 +58,14 @@ int	ft_printf(char const *str, ...)
 		i++;
 	}
 	va_end(args);
+	return (len);
+}
+
+
+int	main(void)
+{
+	char c;
+
+	c = 0;
+	ft_printf("hello %c", c);
 }
