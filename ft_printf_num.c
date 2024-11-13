@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_num.c                                     :+:      :+:    :+:   */
+/*   ft_printf_num.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:59:46 by enogueir          #+#    #+#             */
-/*   Updated: 2024/11/01 16:14:11 by enogueir         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:53:38 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
 size_t	ft_putnbr_hex(size_t n, int uppercase)
 {
@@ -24,7 +24,7 @@ size_t	ft_putnbr_hex(size_t n, int uppercase)
 		hex_num += ft_putnbr_hex(n / 16, uppercase);
 		hex_num += ft_putnbr_hex(n % 16, uppercase);
 	}
-	else if(n <= 9)
+	else if (n <= 9)
 	{
 		hex_num += ft_putchar_fd(n + '0', 1);
 	}
@@ -38,18 +38,17 @@ size_t	ft_putnbr_hex(size_t n, int uppercase)
 	return (hex_num);
 }
 
-
 size_t	ft_putptr(size_t ptr)
 {
-	size_t addr;
+	size_t	addr;
 
 	addr = 0;
-	 if (ptr == 0)
+	if (ptr == 0)
 	{
 		return (ft_putstr_fd(("(nil)"), 1));
 	}
-	addr += ft_putchar_fd('0',1);
-	addr +=	ft_putchar_fd('x',1);
+	addr += ft_putchar_fd('0', 1);
+	addr += ft_putchar_fd('x', 1);
 	addr += ft_putnbr_hex(ptr, 0);
 	return (addr);
 }

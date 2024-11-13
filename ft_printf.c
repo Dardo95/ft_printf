@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:59:36 by enogueir          #+#    #+#             */
-/*   Updated: 2024/11/02 18:05:40 by enogueir         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:54:02 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
-int ft_var_opt(va_list args, const char format)
+int	ft_var_opt(va_list args, const char format)
 {
 	int	len;
 
 	len = 0;
-
 	if (format == 'c')
 		len += ft_putchar_fd(va_arg(args, int), 1);
 	else if (format == 's')
-		len += ft_putstr_fd(va_arg(args,  char *), 1);
+		len += ft_putstr_fd(va_arg(args, char *), 1);
 	else if (format == 'p')
 		len += ft_putptr((size_t)va_arg(args, void *));
 	else if (format == 'd' || format == 'i')
@@ -39,9 +38,9 @@ int ft_var_opt(va_list args, const char format)
 
 int	ft_printf(char const *str, ...)
 {
-	int i;
-	int len;
-	va_list args;
+	int		i;
+	int		len;
+	va_list	args;
 
 	i = 0;
 	len = 0;
@@ -66,15 +65,15 @@ int	ft_printf(char const *str, ...)
 int	main(void)
 {
 
-	int original_print_return;
-	int fake_print_return;
-	
+	int original_print_return ;
+	int fake_print_return ;
+
 	//close(STDOUT_FILENO);
 
-	fake_print_return = ft_printf("Esto es un caracter: %c\n", 'W');
+	fake_print_return (= ft_printf("Esto es un caracter: %c\n", 'W'));
 	ft_putnbr_fd(fake_print_return, 2);
 	ft_putchar_fd('\n', 2);
-	original_print_return = printf("Esto es un caracter: %c\n", 'W');
+	original_print_return (= printf("Esto es un caracter: %c\n", 'W'));
 	ft_putnbr_fd(original_print_return, 2);
 	ft_putchar_fd('\n', 2);
 	ft_putchar_fd('\n', 2);
@@ -82,10 +81,11 @@ int	main(void)
 	if (original_print_return != fake_print_return)
 		ft_putstr_fd("ALERTA, ALERTA!\n\n", STDERR_FILENO);
 
-	fake_print_return = ft_printf("Esto es un string: %s\n", "Hola que tal?");
+	fake_print_return (= ft_printf("Esto es un string: %s\n", "Hola que tal?"));
 	ft_putnbr_fd(fake_print_return, 2);
 	ft_putchar_fd('\n', 2);
-	original_print_return = printf("Esto es un string: %s\n", "Hola que tal?");
+	original_print_return (= printf("Esto es un string: %s\n",
+			"Hola que tal?"));
 	ft_putnbr_fd(original_print_return, 2);
 	ft_putchar_fd('\n', 2);
 	ft_putchar_fd('\n', 2);
@@ -93,10 +93,12 @@ int	main(void)
 	if (original_print_return != fake_print_return)
 		ft_putstr_fd("ALERTA, ALERTA!\n\n", STDERR_FILENO);
 
-	fake_print_return = ft_printf("Esto es un string NULL: %s\n", (char *)NULL);
+	fake_print_return (= ft_printf("Esto es un string NULL: %s\n",
+			(char *)NULL));
 	ft_putnbr_fd(fake_print_return, 2);
 	ft_putchar_fd('\n', 2);
-	original_print_return = printf("Esto es un string NULL: %s\n", (char *)NULL);
+	original_print_return (= printf("Esto es un string NULL: %s\n",
+			(char *)NULL));
 	ft_putnbr_fd(original_print_return, 2);
 	ft_putchar_fd('\n', 2);
 	ft_putchar_fd('\n', 2);
@@ -104,10 +106,10 @@ int	main(void)
 	if (original_print_return != fake_print_return)
 		ft_putstr_fd("ALERTA, ALERTA!\n\n", STDERR_FILENO);
 
-	fake_print_return = ft_printf("Esto es un entero negativo: %d\n", -42);
+	fake_print_return (= ft_printf("Esto es un entero negativo: %d\n", -42));
 	ft_putnbr_fd(fake_print_return, 2);
 	ft_putchar_fd('\n', 2);
-	original_print_return = printf("Esto es un entero negativo: %d\n", -42);
+	original_print_return (= printf("Esto es un entero negativo: %d\n", -42));
 	ft_putnbr_fd(original_print_return, 2);
 	ft_putchar_fd('\n', 2);
 	ft_putchar_fd('\n', 2);
@@ -115,10 +117,10 @@ int	main(void)
 	if (original_print_return != fake_print_return)
 		ft_putstr_fd("ALERTA, ALERTA!\n\n", STDERR_FILENO);
 
-	fake_print_return = ft_printf("Esto es un unsigned int: %u\n", 42);
+	fake_print_return (= ft_printf("Esto es un unsigned int: %u\n", 42));
 	ft_putnbr_fd(fake_print_return, 2);
 	ft_putchar_fd('\n', 2);
-	original_print_return = printf("Esto es un unsigned int: %u\n", 42);
+	original_print_return (= printf("Esto es un unsigned int: %u\n", 42));
 	ft_putnbr_fd(original_print_return, 2);
 	ft_putchar_fd('\n', 2);
 	ft_putchar_fd('\n', 2);
@@ -126,10 +128,10 @@ int	main(void)
 	if (original_print_return != fake_print_return)
 		ft_putstr_fd("ALERTA, ALERTA!\n\n", STDERR_FILENO);
 
-	fake_print_return = ft_printf("Esto es un hex en minusculas: %x\n", 255);
+	fake_print_return (= ft_printf("Esto es un hex en minusculas: %x\n", 255));
 	ft_putnbr_fd(fake_print_return, 2);
 	ft_putchar_fd('\n', 2);
-	original_print_return = printf("Esto es un hex en minusculas: %x\n", 255);
+	original_print_return (= printf("Esto es un hex en minusculas: %x\n", 255));
 	ft_putnbr_fd(original_print_return, 2);
 	ft_putchar_fd('\n', 2);
 	ft_putchar_fd('\n', 2);
@@ -137,10 +139,10 @@ int	main(void)
 	if (original_print_return != fake_print_return)
 		ft_putstr_fd("ALERTA, ALERTA!\n\n", STDERR_FILENO);
 
-	fake_print_return = ft_printf("Esto es un hex 0 en minusculas: %x\n", 0);
+	fake_print_return (= ft_printf("Esto es un hex 0 en minusculas: %x\n", 0));
 	ft_putnbr_fd(fake_print_return, 2);
 	ft_putchar_fd('\n', 2);
-	original_print_return = printf("Esto es un hex 0 en minusculas: %x\n", 0);
+	original_print_return (= printf("Esto es un hex 0 en minusculas: %x\n", 0));
 	ft_putnbr_fd(original_print_return, 2);
 	ft_putchar_fd('\n', 2);
 	ft_putchar_fd('\n', 2);
@@ -148,10 +150,10 @@ int	main(void)
 	if (original_print_return != fake_print_return)
 		ft_putstr_fd("ALERTA, ALERTA!\n\n", STDERR_FILENO);
 
-	fake_print_return = ft_printf("Esto es un hex en mayusculas: %X\n", 255);
+	fake_print_return (= ft_printf("Esto es un hex en mayusculas: %X\n", 255));
 	ft_putnbr_fd(fake_print_return, 2);
 	ft_putchar_fd('\n', 2);
-	original_print_return = printf("Esto es un hex en mayusculas: %X\n", 255);
+	original_print_return (= printf("Esto es un hex en mayusculas: %X\n", 255));
 	ft_putnbr_fd(original_print_return, 2);
 	ft_putchar_fd('\n', 2);
 	ft_putchar_fd('\n', 2);
@@ -200,7 +202,7 @@ int	main(void)
 	ft_putnbr_fd(original_print_return, 2);
 	ft_putchar_fd('\n', 2);
 
-	
+
 
 	return (0);
 } */

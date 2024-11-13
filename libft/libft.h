@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 17:42:34 by enogueir          #+#    #+#             */
-/*   Updated: 2024/11/01 15:44:04 by enogueir         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:56:15 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putendl_fd(char *s, int fd);
-int     ft_putchar_fd(char c, int fd);
+int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char *s, int fd);
 size_t	ft_putnbr_fd(long n, int fd);
 t_list	*ft_lstnew(void *content);
